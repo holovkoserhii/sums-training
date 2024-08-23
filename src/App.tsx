@@ -28,6 +28,7 @@ export const App: React.FC = () => {
               }}
             />
             <Button
+              disabled={!username}
               onClick={() => setIsGameInProgress(true)}
               sx={{
                 display: 'block',
