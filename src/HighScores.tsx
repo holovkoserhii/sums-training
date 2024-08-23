@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { isEmpty, take } from 'lodash';
+import { isEmpty } from 'lodash';
 
 export const HighScores: React.FC = () => {
   const lsItem = localStorage.getItem('highScores');
