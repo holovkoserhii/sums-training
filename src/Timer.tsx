@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Typography } from '@mui/material';
 import { add, differenceInMilliseconds } from 'date-fns';
 
-const GAME_DURATION_SEC = 10;
+const GAME_DURATION_SEC = 60;
 const GAME_RESULT_DISPLAY_DURATION_SEC = 10;
 
 const calculateRemainingTime = (end: Date) =>
