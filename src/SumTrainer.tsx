@@ -135,39 +135,132 @@ export const SumTrainer: React.FC<Props> = ({
 
   return (
     <Box
-      mt={3}
       display="flex"
-      width="300px"
-      justifyContent="space-between"
-      height="50px"
+      justifyContent="center"
       alignItems="center"
+      sx={{
+        mt: 4,
+        animation: 'slideUp 0.3s ease-out',
+        '@keyframes slideUp': {
+          '0%': { transform: 'translateY(20px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
+        },
+      }}
     >
-      <Typography variant="h3">{currentSum.firstOperand}</Typography>
-      <Typography variant="h3">{currentSum.sign}</Typography>
-      <Typography variant="h3">{currentSum.secondOperand}</Typography>
-      <Typography variant="h3">=</Typography>
-      <Box width="100px">
-        <TextField
-          fullWidth
-          autoFocus
-          autoComplete="off"
-          type="number"
-          onChange={(e) =>
-            setUserAttempt({ value: e.target.value, timestamp: new Date() })
-          }
-          value={userAttempt.value}
-          sx={{
-            '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button':
-              {
-                display: 'none',
-              },
-            '& input[type=number]': {
-              MozAppearance: 'textfield',
-              fontSize: '30px',
-              textAlign: 'center',
-            },
+      <Box
+        display="flex"
+        alignItems="center"
+        gap={3}
+        sx={{
+          p: 4,
+          borderRadius: 3,
+          background: 'linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+          position: 'relative',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: -2,
+            left: -2,
+            right: -2,
+            bottom: -2,
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            borderRadius: 3,
+            zIndex: -1,
+            opacity: 0.8,
+          },
+        }}
+      >
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            fontWeight: 700,
+            color: '#2d3436',
+            minWidth: '80px',
+            textAlign: 'center',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
           }}
-        />
+        >
+          {currentSum.firstOperand}
+        </Typography>
+        
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            fontWeight: 600,
+            color: '#667eea',
+            minWidth: '50px',
+            textAlign: 'center',
+          }}
+        >
+          {currentSum.sign}
+        </Typography>
+        
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            fontWeight: 700,
+            color: '#2d3436',
+            minWidth: '80px',
+            textAlign: 'center',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+          }}
+        >
+          {currentSum.secondOperand}
+        </Typography>
+        
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            fontWeight: 600,
+            color: '#667eea',
+            mx: 1,
+          }}
+        >
+          =
+        </Typography>
+        
+        <Box>
+          <TextField
+            autoFocus
+            autoComplete="off"
+            type="number"
+            onChange={(e) =>
+              setUserAttempt({ value: e.target.value, timestamp: new Date() })
+            }
+            value={userAttempt.value}
+            sx={{
+              width: '140px',
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 2,
+                background: 'white',
+                '&:hover fieldset': {
+                  borderColor: '#667eea',
+                  borderWidth: '2px',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#667eea',
+                  borderWidth: '2px',
+                },
+                '& fieldset': {
+                  borderWidth: '2px',
+                },
+              },
+              '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button':
+                {
+                  display: 'none',
+                },
+              '& input[type=number]': {
+                MozAppearance: 'textfield',
+                fontSize: '36px',
+                fontWeight: 700,
+                textAlign: 'center',
+                padding: '12px',
+                color: '#2d3436',
+              },
+            }}
+          />
+        </Box>
       </Box>
     </Box>
   );

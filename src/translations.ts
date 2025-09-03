@@ -1,0 +1,43 @@
+export const translations = {
+  en: {
+    title: 'Math Training',
+    subtitle: 'Challenge yourself with quick math problems!',
+    enterName: 'Enter your name',
+    startGame: 'Start Game',
+    highScores: '🏆 High Scores',
+    noHighScores: 'No high scores yet. Be the first to set a record!',
+    rank: 'Rank',
+    player: 'Player',
+    score: 'Score',
+    date: 'Date',
+    challenge: "{{name}}'s Challenge",
+    yourScore: 'Score',
+    yourLevel: 'Level',
+    timeLeft: '⏱️ {{time}}s',
+    gameOver: 'Game Over!',
+    finalScore: 'Your final score',
+    gameFinished: 'The game is finished. Your final score is {{score}}',
+  },
+  uk: {
+    title: 'Математичний Тренажер',
+    subtitle: 'Розвʼязуй приклади і став нові і нові рекорди!',
+    enterName: "Введіть ваше ім'я",
+    startGame: 'Почати Гру',
+    highScores: '🏆 Рекорди',
+    noHighScores: 'Рекордів ще немає. Будь першим!',
+    rank: 'Місце',
+    player: 'Гравець',
+    score: 'Очок набрано',
+    date: 'Дата',
+    challenge: '{{name}}, розвʼяжи приклад!',
+    yourScore: 'Рахунок',
+    yourLevel: 'Рівень',
+    timeLeft: '⏱️ {{time}}с',
+    gameOver: 'Гра закінчена!',
+    finalScore: 'Твій результат',
+    gameFinished: 'Гра закінчена. Твій фінальний рахунок: {{score}}',
+  },
+};
+
+export type Language = keyof typeof translations;
+export type TranslationKey = keyof typeof translations.en;
