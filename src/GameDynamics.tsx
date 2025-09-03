@@ -25,7 +25,7 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
         ? take(JSON.parse(lsItem), MAX_HIGH_SCORES_ITEMS)
         : [];
       const shouldAddNewItem =
-        // @ts-expect-error
+        // @ts-expect-error - last() return type may be undefined
         (last(prevHighScores)?.score ?? 0) < score ||
         prevHighScores.length < MAX_HIGH_SCORES_ITEMS;
       if (!shouldAddNewItem) {

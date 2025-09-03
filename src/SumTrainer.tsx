@@ -191,9 +191,15 @@ export const SumTrainer: React.FC<Props> = ({
             color: '#667eea',
             minWidth: '50px',
             textAlign: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            lineHeight: 1,
+            fontSize: currentSum.sign === '*' || currentSum.sign === '/' ? '40px' : '48px',
+            paddingBottom: currentSum.sign === '*' || currentSum.sign === '/' ? '8px' : '0',
           }}
         >
-          {currentSum.sign}
+          {currentSum.sign === '*' ? '×' : currentSum.sign === '/' ? '÷' : currentSum.sign}
         </Typography>
         
         <Typography 
@@ -215,6 +221,10 @@ export const SumTrainer: React.FC<Props> = ({
             fontWeight: 600,
             color: '#667eea',
             mx: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            lineHeight: 1,
           }}
         >
           =
