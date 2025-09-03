@@ -1,6 +1,6 @@
 export const translations = {
   en: {
-    title: 'Math Training',
+    title: 'Math training',
     subtitle: 'Challenge yourself with quick math problems!',
     enterName: 'Enter your name',
     startGame: 'Start Game',
@@ -19,7 +19,7 @@ export const translations = {
     gameFinished: 'The game is finished. Your final score is {{score}}',
   },
   uk: {
-    title: 'Математичний Тренажер',
+    title: 'Математичний тренажер',
     subtitle: 'Розвʼязуй приклади і став нові і нові рекорди!',
     enterName: "Введіть ваше ім'я",
     startGame: 'Почати Гру',
