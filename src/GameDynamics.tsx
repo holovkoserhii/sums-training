@@ -65,7 +65,7 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
         overflow: 'hidden',
         position: 'fixed',
         top: 0,
-        left: 0
+        left: 0,
       }}
     >
       <Paper
@@ -85,14 +85,13 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
           },
         }}
       >
-        <Box textAlign="center" mb={4}>
+        <Box textAlign="center" mb={2}>
           <Typography
             variant="h4"
             sx={{
               fontSize: { xs: '1.5rem', sm: '2rem', md: '2.125rem' },
               fontWeight: 600,
               color: '#333',
-              mb: 2,
             }}
           >
             {t('challenge', { name: username })}
@@ -104,10 +103,10 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
           />
         </Box>
 
-        <Box 
-          display="flex" 
-          justifyContent="center" 
-          gap={{ xs: 2, sm: 3 }} 
+        <Box
+          display="flex"
+          justifyContent="center"
+          gap={{ xs: 2, sm: 3 }}
           mb={{ xs: 3, sm: 4 }}
           flexWrap={{ xs: 'wrap', sm: 'nowrap' }}
         >
@@ -122,23 +121,23 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
               textAlign: 'center',
             }}
           >
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                color: '#666', 
-                fontSize: { xs: '10px', sm: '11px' }, 
-                textTransform: 'uppercase', 
-                letterSpacing: '0.5px' 
+            <Typography
+              variant="caption"
+              sx={{
+                color: '#666',
+                fontSize: { xs: '10px', sm: '11px' },
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
               }}
             >
               {t('yourScore')}
             </Typography>
-            <Typography 
-              variant="h6" 
-              sx={{ 
-                color: '#333', 
+            <Typography
+              variant="h6"
+              sx={{
+                color: '#333',
                 fontWeight: 600,
-                fontSize: { xs: '1.125rem', sm: '1.25rem' }
+                fontSize: { xs: '1.125rem', sm: '1.25rem' },
               }}
             >
               {score}
@@ -156,23 +155,23 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
               textAlign: 'center',
             }}
           >
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                color: '#666', 
-                fontSize: { xs: '10px', sm: '11px' }, 
-                textTransform: 'uppercase', 
-                letterSpacing: '0.5px' 
+            <Typography
+              variant="caption"
+              sx={{
+                color: '#666',
+                fontSize: { xs: '10px', sm: '11px' },
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
               }}
             >
               {t('yourLevel')}
             </Typography>
-            <Typography 
-              variant="h6" 
-              sx={{ 
-                color: '#333', 
+            <Typography
+              variant="h6"
+              sx={{
+                color: '#333',
                 fontWeight: 600,
-                fontSize: { xs: '1.125rem', sm: '1.25rem' }
+                fontSize: { xs: '1.125rem', sm: '1.25rem' },
               }}
             >
               {level}
@@ -217,11 +216,11 @@ export const GameDynamics: React.FC<Props> = ({ onGameEnd, username }) => {
             >
               {t('gameOver')}
             </Typography>
-            <Typography 
-              variant="h5" 
+            <Typography
+              variant="h5"
               color="text.secondary"
               sx={{
-                fontSize: { xs: '1.25rem', sm: '1.5rem' }
+                fontSize: { xs: '1.25rem', sm: '1.5rem' },
               }}
             >
               {t('finalScore')}: <strong>{score}</strong>
