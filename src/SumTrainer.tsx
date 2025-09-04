@@ -139,7 +139,8 @@ export const SumTrainer: React.FC<Props> = ({
       justifyContent="center"
       alignItems="center"
       sx={{
-        mt: 4,
+        mt: { xs: 2, sm: 3, md: 4 },
+        px: { xs: 2, sm: 0 },
         animation: 'slideUp 0.3s ease-out',
         '@keyframes slideUp': {
           '0%': { transform: 'translateY(20px)', opacity: 0 },
@@ -150,13 +151,16 @@ export const SumTrainer: React.FC<Props> = ({
       <Box
         display="flex"
         alignItems="center"
-        gap={3}
+        flexDirection="row"
+        gap={{ xs: 1, sm: 2, md: 3 }}
         sx={{
-          p: 4,
+          p: { xs: 2, sm: 3, md: 4 },
           borderRadius: 3,
           background: 'linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%)',
           boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
           position: 'relative',
+          width: { xs: 'auto', sm: 'auto' },
+          maxWidth: { xs: 'calc(100vw - 32px)', sm: 'none' },
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -174,9 +178,10 @@ export const SumTrainer: React.FC<Props> = ({
         <Typography 
           variant="h2" 
           sx={{ 
+            fontSize: { xs: '2rem', sm: '3rem', md: '3.75rem' },
             fontWeight: 700,
             color: '#2d3436',
-            minWidth: '80px',
+            minWidth: { xs: 'auto', sm: '70px', md: '80px' },
             textAlign: 'center',
             textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
           }}
@@ -189,14 +194,19 @@ export const SumTrainer: React.FC<Props> = ({
           sx={{ 
             fontWeight: 600,
             color: '#667eea',
-            minWidth: '50px',
+            minWidth: { xs: 'auto', sm: '45px', md: '50px' },
             textAlign: 'center',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             lineHeight: 1,
-            fontSize: currentSum.sign === '*' || currentSum.sign === '/' ? '40px' : '48px',
-            paddingBottom: currentSum.sign === '*' || currentSum.sign === '/' ? '8px' : '0',
+            fontSize: { 
+              xs: currentSum.sign === '*' || currentSum.sign === '/' ? '24px' : '28px',
+              sm: currentSum.sign === '*' || currentSum.sign === '/' ? '35px' : '42px',
+              md: currentSum.sign === '*' || currentSum.sign === '/' ? '40px' : '48px'
+            },
+            paddingBottom: currentSum.sign === '*' || currentSum.sign === '/' ? { xs: '3px', sm: '6px', md: '8px' } : '0',
+            px: { xs: 0.5, sm: 1, md: 1 },
           }}
         >
           {currentSum.sign === '*' ? '×' : currentSum.sign === '/' ? '÷' : currentSum.sign}
@@ -205,9 +215,10 @@ export const SumTrainer: React.FC<Props> = ({
         <Typography 
           variant="h2" 
           sx={{ 
+            fontSize: { xs: '2rem', sm: '3rem', md: '3.75rem' },
             fontWeight: 700,
             color: '#2d3436',
-            minWidth: '80px',
+            minWidth: { xs: 'auto', sm: '70px', md: '80px' },
             textAlign: 'center',
             textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
           }}
@@ -218,19 +229,28 @@ export const SumTrainer: React.FC<Props> = ({
         <Typography 
           variant="h2" 
           sx={{ 
+            fontSize: { xs: '2rem', sm: '3rem', md: '3.75rem' },
             fontWeight: 600,
             color: '#667eea',
-            mx: 1,
+            mx: { xs: 0.5, sm: 1 },
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             lineHeight: 1,
+            px: { xs: 0.5, sm: 1, md: 1 },
           }}
         >
           =
         </Typography>
         
-        <Box>
+        <Box
+          sx={{
+            width: { xs: 'auto', sm: 'auto' },
+            display: 'flex',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}
+        >
           <TextField
             autoFocus
             autoComplete="off"
@@ -240,7 +260,7 @@ export const SumTrainer: React.FC<Props> = ({
             }
             value={userAttempt.value}
             sx={{
-              width: '140px',
+              width: { xs: '100px', sm: '130px', md: '140px' },
               '& .MuiOutlinedInput-root': {
                 borderRadius: 2,
                 background: 'white',
@@ -262,10 +282,10 @@ export const SumTrainer: React.FC<Props> = ({
                 },
               '& input[type=number]': {
                 MozAppearance: 'textfield',
-                fontSize: '36px',
+                fontSize: { xs: '24px', sm: '32px', md: '36px' },
                 fontWeight: 700,
                 textAlign: 'center',
-                padding: '12px',
+                padding: { xs: '6px', sm: '10px', md: '12px' },
                 color: '#2d3436',
               },
             }}

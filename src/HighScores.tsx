@@ -1,5 +1,16 @@
 import React from 'react';
-import { Box, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Chip } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Chip,
+} from '@mui/material';
 import { isEmpty } from 'lodash';
 import { useLanguage } from './LanguageContext.tsx';
 
@@ -9,26 +20,27 @@ export const HighScores: React.FC = () => {
   const { t } = useLanguage();
   return (
     <Box mt={4}>
-      <Typography 
-        variant="h5" 
-        sx={{ 
+      <Typography
+        variant="h5"
+        sx={{
           fontWeight: 600,
           mb: 2,
           textAlign: 'center',
-          color: '#333'
+          color: '#333',
         }}
       >
         {t('highScores')}
       </Typography>
       {!isEmpty(highScores) ? (
-        <TableContainer 
-          component={Paper} 
+        <TableContainer
+          component={Paper}
           elevation={0}
           sx={{
             borderRadius: 2,
             border: '1px solid rgba(0,0,0,0.08)',
             maxHeight: '300px',
-            overflow: 'auto',
+            overflowY: 'auto',
+            overflowX: 'hidden',
             '&::-webkit-scrollbar': {
               width: '8px',
             },
@@ -42,46 +54,62 @@ export const HighScores: React.FC = () => {
             },
           }}
         >
-          <Table size="small" stickyHeader>
+          <Table
+            size="small"
+            stickyHeader
+            sx={{ width: '100%', tableLayout: 'fixed' }}
+          >
             <TableHead>
               <TableRow>
-                <TableCell 
-                  sx={{ 
+                <TableCell
+                  sx={{
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background:
+                      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     color: 'white',
                     borderBottom: 'none',
+                    padding: '12px 16px',
+                    width: '20%',
                   }}
                 >
                   {t('rank')}
                 </TableCell>
-                <TableCell 
-                  sx={{ 
+                <TableCell
+                  sx={{
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background:
+                      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     color: 'white',
                     borderBottom: 'none',
+                    padding: '12px 16px',
+                    width: '25%',
                   }}
                 >
                   {t('player')}
                 </TableCell>
-                <TableCell 
+                <TableCell
                   align="center"
-                  sx={{ 
+                  sx={{
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background:
+                      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     color: 'white',
                     borderBottom: 'none',
+                    padding: '12px 16px',
+                    width: '25%',
                   }}
                 >
                   {t('score')}
                 </TableCell>
-                <TableCell 
-                  sx={{ 
+                <TableCell
+                  sx={{
                     fontWeight: 700,
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background:
+                      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                     color: 'white',
                     borderBottom: 'none',
+                    padding: '12px 16px',
+                    width: '30%',
                   }}
                 >
                   {t('date')}
@@ -91,7 +119,7 @@ export const HighScores: React.FC = () => {
             <TableBody>
               {/*@ts-ignore*/}
               {highScores.map((hs, index) => (
-                <TableRow 
+                <TableRow
                   key={hs.timestamp}
                   sx={{
                     '&:hover': {
@@ -102,29 +130,41 @@ export const HighScores: React.FC = () => {
                     },
                   }}
                 >
-                  <TableCell>
+                  <TableCell sx={{ padding: '12px 16px' }}>
                     {index === 0 && '🥇'}
                     {index === 1 && '🥈'}
                     {index === 2 && '🥉'}
                     {index > 2 && `#${index + 1}`}
                   </TableCell>
-                  <TableCell sx={{ fontWeight: 500 }}>
+                  <TableCell
+                    sx={{
+                      fontWeight: 500,
+                      padding: '12px 16px',
+                    }}
+                  >
                     {hs.username}
                   </TableCell>
-                  <TableCell align="center">
-                    <Chip 
-                      label={hs.score} 
+                  <TableCell align="center" sx={{ padding: '12px 16px' }}>
+                    <Chip
+                      label={hs.score}
                       size="small"
                       sx={{
-                        background: index === 0 
-                          ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-                          : 'linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%)',
+                        background:
+                          index === 0
+                            ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                            : 'linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%)',
                         color: index === 0 ? 'white' : '#333',
                         fontWeight: 600,
                       }}
                     />
                   </TableCell>
-                  <TableCell sx={{ fontSize: '12px', color: '#666' }}>
+                  <TableCell
+                    sx={{
+                      fontSize: '13px',
+                      color: '#666',
+                      padding: '12px 16px',
+                    }}
+                  >
                     {hs.timestamp}
                   </TableCell>
                 </TableRow>
@@ -133,7 +173,7 @@ export const HighScores: React.FC = () => {
           </Table>
         </TableContainer>
       ) : (
-        <Box 
+        <Box
           sx={{
             textAlign: 'center',
             py: 3,

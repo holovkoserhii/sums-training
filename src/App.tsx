@@ -18,7 +18,9 @@ export const App: React.FC = () => {
       justifyContent="center"
       sx={{
         overflow: 'hidden',
-        position: 'relative'
+        position: 'fixed',
+        top: 0,
+        left: 0
       }}
     >
       {isGameInProgress ? (
@@ -30,12 +32,13 @@ export const App: React.FC = () => {
         <Paper
           elevation={10}
           sx={{
-            p: 5,
+            p: { xs: 3, sm: 4, md: 5 },
             borderRadius: 4,
             background: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(10px)',
-            minWidth: '500px',
-            maxWidth: '600px',
+            minWidth: { xs: '90%', sm: '400px', md: '500px' },
+            maxWidth: { xs: '95%', sm: '500px', md: '600px' },
+            m: { xs: 2, sm: 0 },
             animation: 'slideIn 0.5s ease-out',
             '@keyframes slideIn': {
               '0%': { transform: 'translateY(-30px)', opacity: 0 },
@@ -51,9 +54,11 @@ export const App: React.FC = () => {
               aria-label="language"
               size="small"
               sx={{
+                flexWrap: { xs: 'wrap', sm: 'nowrap' },
                 '& .MuiToggleButton-root': {
-                  px: 3,
+                  px: { xs: 2, sm: 3 },
                   py: 1,
+                  fontSize: { xs: '0.875rem', sm: '1rem' },
                   borderRadius: 2,
                   border: '1px solid rgba(102, 126, 234, 0.3)',
                   '&.Mui-selected': {
@@ -75,6 +80,7 @@ export const App: React.FC = () => {
             <Typography 
               variant="h3" 
               sx={{ 
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
                 fontWeight: 700,
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 backgroundClip: 'text',
@@ -85,7 +91,14 @@ export const App: React.FC = () => {
             >
               {t('title')}
             </Typography>
-            <Typography variant="body1" color="text.secondary">
+            <Typography 
+              variant="body1" 
+              color="text.secondary"
+              sx={{
+                fontSize: { xs: '0.875rem', sm: '1rem' },
+                px: { xs: 2, sm: 0 }
+              }}
+            >
               {t('subtitle')}
             </Typography>
           </Box>
@@ -98,7 +111,7 @@ export const App: React.FC = () => {
               variant="outlined"
               sx={{
                 width: '100%',
-                maxWidth: 350,
+                maxWidth: { xs: '100%', sm: 350 },
                 '& .MuiOutlinedInput-root': {
                   borderRadius: 2,
                   '&:hover fieldset': {
@@ -109,8 +122,8 @@ export const App: React.FC = () => {
                   },
                 },
                 '& input': {
-                  fontSize: '16px',
-                  padding: '14px',
+                  fontSize: { xs: '14px', sm: '16px' },
+                  padding: { xs: '12px', sm: '14px' },
                 },
               }}
             />
@@ -121,9 +134,9 @@ export const App: React.FC = () => {
               size="large"
               sx={{
                 borderRadius: 2,
-                px: 6,
-                py: 1.5,
-                fontSize: '18px',
+                px: { xs: 4, sm: 6 },
+                py: { xs: 1.25, sm: 1.5 },
+                fontSize: { xs: '16px', sm: '18px' },
                 fontWeight: 600,
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
